@@ -3,7 +3,7 @@ require_relative '../lib/film'
 require_relative '../lib/film_collection'
 
 describe FilmCollection do
-  let(:dir_path) { "#{File.dirname(__FILE__)}/fixtures/" }
+  let(:dir_path) { "#{File.dirname(__FILE__)}/fixtures/data/" }
   let(:collection) { FilmCollection.new_from_file(dir_path) }
   let(:authors) { ["Фрэнк Дарабонт", "Роберт Земекис"] }
   let(:count_films) { 3 }
@@ -28,7 +28,7 @@ describe FilmCollection do
   context '#new_from_array' do
     it 'correct initialization collection films from array' do
       array_collection = FilmCollection.new_from_array(films)
-      expect(array_collection.films).to contain_exactly(films[0], films[1], films[2])
+      expect(array_collection.films).to match_array(films)
     end
   end
 

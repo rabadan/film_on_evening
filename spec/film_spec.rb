@@ -3,7 +3,7 @@ require_relative '../lib/film'
 require_relative '../lib/film_collection'
 
 describe Film do
-  let(:file_path) { File.dirname(__FILE__) + "/fixtures/001.txt" }
+  let(:file_path) { File.dirname(__FILE__) + "/fixtures/data/001.txt" }
   let(:film_data) {
     {
         title: "Побег из Шоушенка",
