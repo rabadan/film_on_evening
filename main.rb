@@ -8,14 +8,14 @@ url_parsing_films = "https://www.kinopoisk.ru/top/lists/1/"
 # Инифиализируем парсер
 kinopoisk_parser = KinopoiskParser.new(url_parsing_films)
 
+# парсим фильмы с страницы
+kinopoisk_parser.parsing_page
+
 # Если была ошибка при загрузке - выводим ее и выходим
 unless kinopoisk_parser.error_text.nil?
   puts kinopoisk_parser.error_text
   exit 1
 end
-
-# парсим фильмы с страницы
-kinopoisk_parser.parsing_films
 
 # Если нет ни одного фильма, выводим ошибку, выходим
 if kinopoisk_parser.size == 0
