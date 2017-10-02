@@ -1,17 +1,21 @@
-# Консольное приложение "Фильм на вечер"
+# Film for the evening
+This is a small console utility that offers us some movie for viewing, 
+having previously asked the user for the desired director
 
-Программа написана на языке Ruby. Версия 0.2
 
-#### Запуск  
-- У вас должен быть установлен интерпретатор Ruby
-- Для работы ещё необходимо установить необходимые гемы:
+The program is written in `Ruby`
+
+#### Launching  
+- You must have Ruby interpreter installed
+- For work it is still necessary to establish the necessary gems:
 ```
 bundle install
 ```
 
-Для запуска приложения с случайным словом из словаря, введите: 
+To run the application, type:
 ```
 ruby main.rb
 ```
 
-Автор: [Рабадан Акагасанов](https://github.com/rabadan)
+#### Author: 
+[Rabadan Akagasanov](http://rabadan.ru)

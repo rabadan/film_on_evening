@@ -1,8 +1,8 @@
 require 'nokogiri'
 require 'open-uri'
-
+# Class parsing Kinopoisk films
 class KinopoiskParser
-  attr_reader :error_text, :films, :page
+  attr_reader :error_text, :films
 
   def initialize(url)
     @url = url
@@ -11,10 +11,11 @@ class KinopoiskParser
 
   def load_page_from_url(url)
     begin
-      return open(url)
+      data = open(url)
     rescue SocketError => e
       @error_text = "Проблема с сетью: #{e.message}"
     end
+    data
   end
 
   def structure_html
@@ -24,11 +25,11 @@ class KinopoiskParser
 
   def parsing_page
     html = structure_html
-    html.css("#block_left_pad #itemList tr td.news").each do |item|
+    html.css('#block_left_pad #itemList tr td.news').each do |item|
       new_film = {
-        title: item.css("a.all").text,
-        author: item.css("span i a.lined").text,
-        year: item.css("div span").text.match(/\((\d+?)\)/).to_a[1]
+        title: item.css('a.all').text,
+        author: item.css('span i a.lined').text,
+        year: item.css('div span').text.match(/\((\d+?)\)/).to_a[1]
       }
       films << new_film
     end

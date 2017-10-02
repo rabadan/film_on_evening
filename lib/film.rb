@@ -1,3 +1,4 @@
+# Class Film
 class Film
   attr_reader :title, :author, :year
 
@@ -10,7 +11,7 @@ class Film
   def self.new_from_file(file_path)
     raise "error read file: #{file_path}" unless File.exist?(file_path)
 
-    f = File.new(file_path, "r:UTF-8")
+    f = File.new(file_path, 'r:UTF-8')
     data = f.readlines.map(&:chomp)
     f.close
 
@@ -25,9 +26,7 @@ class Film
     "#{@author} — #{@title} (#{@year})"
   end
 
-  def ==(obj)
-    @title == obj.title &&
-    @author == obj.author &&
-    @year == obj.year
+  def ==(other)
+    @title == other.title && @author == other.author && @year == other.year
   end
 end

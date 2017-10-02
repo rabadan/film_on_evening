@@ -5,17 +5,17 @@ require_relative '../lib/film_collection'
 describe FilmCollection do
   let(:dir_path) { "#{File.dirname(__FILE__)}/fixtures/data/" }
   let(:collection) { FilmCollection.new_from_file(dir_path) }
-  let(:authors) { ["Фрэнк Дарабонт", "Роберт Земекис"] }
+  let(:authors) { ['Фрэнк Дарабонт', 'Роберт Земекис'] }
   let(:count_films) { 3 }
-  let(:films) {
+  let(:films) do
     [
       Film.new_from_file("#{dir_path}001.txt"),
       Film.new_from_file("#{dir_path}002.txt"),
       Film.new_from_file("#{dir_path}003.txt")
     ]
-  }
+  end
   let(:author_find) { authors[1] }
-  let(:found_movie_by_author) { [films[2]] }
+  let(:movie_by_author) { [films[2]] }
 
   context '#films' do
     it 'correct initialization collection films from path dir' do
@@ -46,7 +46,7 @@ describe FilmCollection do
 
   context '#films_from_author' do
     it 'getting movies by author' do
-      expect(collection.films_from_author(author_find)).to eq found_movie_by_author
+      expect(collection.films_from_author(author_find)).to eq(movie_by_author)
     end
   end
 end

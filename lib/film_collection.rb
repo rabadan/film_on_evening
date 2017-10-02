@@ -1,5 +1,5 @@
 require_relative 'film'
-
+# Class film Collections
 class FilmCollection
   attr_reader :films, :authors
 
@@ -11,7 +11,9 @@ class FilmCollection
   def self.new_from_file(film_dir_path)
     film_collection = new
 
-    raise '' "Каталог с фильмами не обнаружен #{film_dir_path}" unless Dir.exist?(film_dir_path)
+    unless Dir.exist?(film_dir_path)
+      raise "Каталог с фильмами не обнаружен #{film_dir_path}"
+    end
 
     Dir.glob("#{film_dir_path}*.txt").each do |film_path|
       film_collection.add_film(Film.new_from_file(film_path))
